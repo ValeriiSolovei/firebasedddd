@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "130595355347",
+    "project_id": "fir-data-977bb",
+    "storage_bucket": "fir-data-977bb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130595355347:android:32a591e50eea8987837226",
+        "android_client_info": {
+          "package_name": "com.example.firebasedddd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaOLiv-X9Xzb-_RIQgOBqDWylrPwD78DI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
