@@ -5,6 +5,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
 object AuthUtils {
+
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     fun registerWithEmail(email: String, password: String, onComplete: (Boolean, String?) -> Unit) {

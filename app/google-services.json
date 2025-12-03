@@ -1,26 +1,44 @@
 {
   "project_info": {
-    "project_number": "130595355347",
-    "project_id": "fir-data-977bb",
-    "storage_bucket": "fir-data-977bb.firebasestorage.app"
+    "project_number": "933096413659",
+    "project_id": "fir-dddd-b3a56",
+    "storage_bucket": "fir-dddd-b3a56.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:130595355347:android:32a591e50eea8987837226",
+        "mobilesdk_app_id": "1:933096413659:android:2374361cd245781f39affe",
         "android_client_info": {
           "package_name": "com.example.firebasedddd"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "933096413659-vhtrtlsg1nq967ek0mk6e2r686v6r3ap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebasedddd",
+            "certificate_hash": "066dd5bccc21ef73502b8b5ae2af7c238ed516fe"
+          }
+        },
+        {
+          "client_id": "933096413659-oirabrniiag1comvilrtn1qhj57gdmpq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAaOLiv-X9Xzb-_RIQgOBqDWylrPwD78DI"
+          "current_key": "AIzaSyDK0NSzvgXfkADIiJVBriuvHh4hg6Rgz3g"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "933096413659-oirabrniiag1comvilrtn1qhj57gdmpq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

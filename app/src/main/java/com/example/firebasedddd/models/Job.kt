@@ -3,7 +3,7 @@ package com.example.firebasedddd.models
 import java.io.Serializable
 
 data class Job(
-    val jobId: String = "",
+    val jobID: String = "",
     val title: String = "",
     val company: String = "",
     val location: String = "",

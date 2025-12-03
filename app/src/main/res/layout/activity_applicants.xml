@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".ApplicantsActivity">
 
-    <!-- ADD THIS TOOLBAR AT THE TOP -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -17,13 +16,13 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="All Jobs" />
+            app:navigationIcon="@drawable/ic_arrow_back"
+            tools:title="Applicants for Senior Dev" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- The RecyclerView should now be constrained to be BELOW the AppBarLayout -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvJobs"
+        android:id="@+id/rvApplicants"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -31,14 +30,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBarLayout"
-        tools:listitem="@layout/item_job_post" />
+        tools:listitem="@android:layout/simple_list_item_1"/>
 
-    <!-- The rest of the layout stays the same -->
     <TextView
-        android:id="@+id/tvNoJobs"
+        android:id="@+id/tvNoApplicants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No jobs posted yet."
+        android:text="No applicants yet."
         android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,17 +44,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddJob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:contentDescription="Post a new job"
-        android:focusable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

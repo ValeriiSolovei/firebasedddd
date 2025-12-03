@@ -1,13 +1,13 @@
 package com.example.firebasedddd
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
-import android.util.Log
 import android.content.ContentValues.TAG
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +19,9 @@ class MainActivity : AppCompatActivity() {
         val user = hashMapOf(
             "first" to "Ada",
             "last" to "Lovelace",
-            "born" to 1815)
+            "born" to 1815
+        )
+
         db.collection("users")
             .add(user)
             .addOnSuccessListener { documentReference ->
@@ -40,5 +42,4 @@ class MainActivity : AppCompatActivity() {
                 Log.w(TAG, "Error getting documents.", exception)
             }
     }
-
 }

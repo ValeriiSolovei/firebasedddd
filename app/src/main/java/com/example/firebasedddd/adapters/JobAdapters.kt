@@ -3,37 +3,43 @@ package com.example.firebasedddd.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firebasedddd.R
 import com.example.firebasedddd.models.Job
 
-class JobAdapter(private var jobs: List<Job>, private val onClick: (Job) -> Unit) :
-    RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
+class JobAdapter(
+    private val jobList: List<Job>,
+    private val onApplyClicked: (Job) -> Unit
+) : RecyclerView.Adapter<JobAdapter.JobViewHolder>() {
 
-    inner class JobViewHolder(item: View) : RecyclerView.ViewHolder(item) {
-        private val tvTitle: TextView = item.findViewById(R.id.tvTitle)
-        private val tvCompany: TextView = item.findViewById(R.id.tvCompany)
-        private val tvLocation: TextView = item.findViewById(R.id.tvLocation)
-        fun bind(job: Job) {
-            tvTitle.text = job.title
-            tvCompany.text = job.company
-            tvLocation.text = job.location
-            itemView.setOnClickListener { onClick(job) }
-        }
+    class JobViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        // --- FIX THE IDS IN THESE LINES ---
+        val titleTextView: TextView = itemView.findViewById(R.id.tvJobTitle) // Use tvJobTitle
+        val companyTextView: TextView = itemView.findViewById(R.id.tvCompanyName) // Use tvCompanyName
+        val locationTextView: TextView = itemView.findViewById(R.id.tvLocation)
+        val applyButton: Button = itemView.findViewById(R.id.btnApply)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_job, parent, false)
-        return JobViewHolder(v)
+        // Make sure this is inflating the correct layout file name
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_job_post, parent, false) // Ensure filename is item_job_post.xml
+        return JobViewHolder(view)
     }
 
-    override fun getItemCount(): Int = jobs.size
+    override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
+        val currentJob = jobList[position]
+        holder.titleTextView.text = currentJob.title
+        holder.companyTextView.text = currentJob.company
+        holder.locationTextView.text = currentJob.location
 
-    override fun onBindViewHolder(holder: JobViewHolder, position: Int) = holder.bind(jobs[position])
-
-    fun updateJobs(newJobs: List<Job>) {
-        this.jobs = newJobs
-        notifyDataSetChanged()
+        holder.applyButton.setOnClickListener {
+            onApplyClicked(currentJob)
+        }
     }
+
+    override fun getItemCount() = jobList.size
 }
+

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,26 +12,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Firebasedddd">
-
+        <activity
+            android:name=".MyJobsActivity"
+            android:exported="false" />
         <!-- Launcher Activity -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- Other Activities -->
 
-        <!-- Other Activities -->
-        <activity android:name=".SignUpActivity" android:exported="true" />
-        <activity android:name=".HomeActivity" android:exported="true" />
-        <activity android:name=".PostJobActivity" android:exported="true" />
-        <activity android:name=".JobDetailsActivity" android:exported="true" />
 
-        <!-- If you still need MainActivity for testing -->
-        <activity android:name=".MainActivity" android:exported="false" />
-
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PostJobActivity"
+            android:exported="true" />
+        <activity
+            android:name=".JobDetailsActivity"
+            android:exported="true" /> <!-- If you still need MainActivity for testing -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

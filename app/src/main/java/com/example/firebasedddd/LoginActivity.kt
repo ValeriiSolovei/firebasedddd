@@ -8,10 +8,14 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+// The bad import that was here has been removed.
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import java.lang.Exception
 
 class LoginActivity : AppCompatActivity() {
+
     private val RC_SIGN_IN = 9001
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,21 +33,21 @@ class LoginActivity : AppCompatActivity() {
             val pass = etPassword.text.toString()
             if (email.isEmpty() || pass.isEmpty()) { Toast.makeText(this, "Enter email and password", Toast.LENGTH_SHORT).show(); return@setOnClickListener }
             AuthUtils.signInWithEmail(email, pass) { success, error ->
-                if (success) goToHome() else Toast.makeText(this, "Login failed: $error", Toast.LENGTH_LONG).show()
+                if (success) goHome() else Toast.makeText(this, "login failed: $error", Toast.LENGTH_LONG).show()
             }
         }
 
         tvGoToSignUp.setOnClickListener { startActivity(Intent(this, SignUpActivity::class.java)) }
 
-        // Google sign in (default_web_client_id must be set in strings.xml)
+        // google sign in (default_web_client_id must be set in strings.xml)
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
-        val googleClient = GoogleSignIn.getClient(this, gso)
+        val googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         btnGoogle.setOnClickListener {
-            startActivityForResult(googleClient.signInIntent, RC_SIGN_IN)
+            startActivityForResult(googleSignInClient.signInIntent, RC_SIGN_IN)
         }
     }
 
@@ -55,14 +59,14 @@ class LoginActivity : AppCompatActivity() {
                 val account = task.getResult(Exception::class.java)
                 if (account != null) {
                     AuthUtils.signInWithGoogle(account) { success, error ->
-                        if (success) goToHome() else Toast.makeText(this, "Google login failed: $error", Toast.LENGTH_LONG).show()
+                        if (success) goHome() else Toast.makeText(this, "Google login failed: $error", Toast.LENGTH_LONG).show()
                     }
                 }
             } catch (e: Exception) { Toast.makeText(this, "Google sign in failed: ${e.localizedMessage}", Toast.LENGTH_LONG).show() }
         }
     }
 
-    private fun goToHome() {
+    private fun goHome() {
         startActivity(Intent(this, HomeActivity::class.java))
         finish()
     }
